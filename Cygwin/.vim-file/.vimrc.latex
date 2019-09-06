@@ -1,0 +1,192 @@
+" ## vimrc script for tex file ##
+" ## developed by Doosoo Yoon  ##
+" ## to call this script, attach following two lines in the defualt .vimrc
+" autocmd BufRead                 *.tex   source ~/.vim-file/.vimrc.latex
+" autocmd BufNewFile              *.tex   source ~/.vim-file/.vimrc.latex
+
+
+set syn=tex
+
+
+" Mapping and Macro for latex
+
+map <F5> :!pdflatex %<CR>
+map <F6> :!latex %<CR>
+map <F7> :execute '!dvips %<.dvi' <bar> !ps2pdf %<.ps<CR>
+map <F8> :!bibtex %<<CR>
+map <F9> :!dvipdfmx %<.dvi<CR>
+
+map <F10> :set spell<CR>
+map <F11> :set nospell<CR>
+map <F12> !}fmt -100<CR>
+
+
+" ## esc for executive mode ##
+" ##  -> Ctrl-v & <ESC>   ##
+
+map! ]equ \begin{equation}oo\end{equation}k$i<space><space><space>
+map! ]eqa \begin{eqnarray}oo\end{eqnarray}k$i<space><space><space>
+"map! ]equ \begin{equation}\label{eq:}oo\end{equation}kk$i
+"map! ]eqa \begin{eqnarray}\label{eq:}oo\end{eqnarray}kk$i
+
+map! ]fig \begin{figure}[!htbp]o\centeringo\includegraphics[width=0.7\textwidth]{}o\caption{}o\label{fig:}o\end{figure}kkk$i
+map! ]2fig \begin{figure}[!htbp] <CR>
+          \\begin{center}$ <CR>
+          \\begin{array}{cc}o
+          \\includegraphics[width=0.5\textwidth]{a} &o
+          \\includegraphics[width=0.5\textwidth]{a}oi<tab><tab>\end{array}$ <CR>
+          \\end{center} <CR>
+          \\caption{a}   <CR>
+          \\label{fig:} <CR>
+          \\end{figure}kkkkkk0$bla
+map! ]del \begin{deluxetable}{a} <CR>
+         \\tablecolumns{a}\tabletypesize{\scriptsize}\tablewidth{0pt}o
+         \\tablecaption{a \label{tab: }}o
+         \\tablehead{ \colhead{a} & \colhead{a} }o
+         \\startdata <CR>
+         \    & \\ o<backspace>\enddata   <CR>
+         \\tablenotetext{}{}o
+         \\end{deluxetable}kkkkkkkk$hi
+map! ]tab \begin{table}[!htbp]o
+         \\caption{a}o
+         \\centeringo
+         \\begin{tabular}{a}o
+         \\hline\hlineo
+         \%heado
+         \       \\o<backspace><backspace>\hlineo
+         \%data    <CR>
+         \       \\o<backspace><backspace>\hlineo
+         \\end{tabular}o
+         \\label{table:a}o
+         \\end{table}kkkkkkkk$hi
+
+map! ]biblio \begin{thebibliography}{a} <CR>
+            \\bibitem[a]{a} <CR>
+            \\end{thebibliography}k0wwa
+map! ]bibit \bibitem[a]{a}ba
+
+map! ]item \begin{itemize}o
+           \\itemo
+           \\end{itemize}ka
+
+map! {}   {}i
+map! ()   ()i
+map! []   []i
+map! {{}} \left\{  \right\}bbhhi
+map! (()) \left(  \right)bbhi
+map! [[]] \left[  \right]bbhi
+
+
+" ## Templates ##
+" ## Template for apj ##
+
+map! ]tmpapj \documentclass[twocolumn,dvipdfmx]{aastex62} <CR>
+	  \<CR>
+	  \\usepackage{amsmath}  <CR>
+	  \<CR>
+	  \%% Reintroduced the \received and \accepted commands from AASTeX v5.2  <CR>
+	  \\received{\today}  <CR>
+ 	  \%\revised{a} <CR>
+  	  \%\accepted{a} <CR>
+	  \%% Command to document which AAS Journal the manuscript was submitted to.  <CR>
+	  \%% Adds "Submitted to " the arguement.  <CR>
+	  \\submitjournal{ApJ}  <CR>
+	  \<CR>
+	  \\shorttitle{a}  <CR>
+	  \\shortauthors{a}  <CR>
+	  \%===========================================================================================  <CR>
+	  \\begin{document}  <CR>
+	  \<CR>
+	  \\title{a}  <CR>
+	  \<CR>
+	  \\correspondingauthor{a}  <CR>
+          \\email{a}  <CR>
+	  \<CR>
+	  \\author{a}  <CR>
+	  \%\altaffiliation{a}  <CR>
+	  \\affiliation{a}  <CR>
+	  \<CR>
+	  \\begin{abstract}  <CR>
+	  \<CR>
+	  \\end{abstract}  <CR>
+	  \<CR>
+	  \\keywords{a}  <CR>
+	  \<CR>
+          \%\acknowledgments{a}  <CR>
+          \%\section*{Acknowledgments}  <CR>
+          \<CR>
+          \\bibliographystyle{aasjournal}  <CR>
+          \\bibliography{:r! echo %:t:r kJx$a} <CR>
+          \%===========================================================================================  <CR>
+          \\end{document} kkkkkkkkkkkkkkkkkkkkkkkkkk0wwa
+
+
+" ## Template for emulateapj ##
+
+map! ]tmpemul \documentclass[apj,twocolappendix,numberedappendix]{emulateapj}
+          \<CR>
+          \\usepackage{amsmath}  <CR>
+          \\usepackage{color}  <CR>
+          \\usepackage[colorlinks,citecolor=blue]{hyperref}  <CR>
+          \\linespread{1.2}  <CR>
+          \<CR>
+          \\slugcomment{draft: \today}  <CR>
+          \<CR>
+          \\shorttitle{a}  <CR>
+          \\shortauthors{a}  <CR>
+          \%===========================================================================================  <CR>
+          \\begin{document}  <CR>
+          \<CR>
+          \\title{a}  <CR>
+          \<CR>
+          \~~~~~  <CR>
+          \<CR>
+          \\author{ \altaffilmark{a}}  <CR>
+          \<CR>
+          \\affil{$^{a}$}  <CR>
+          \%\altaffiltext{a}{a}  <CR>
+          \<CR>
+          \\email{a}  <CR>
+          \<CR>
+          \\begin{abstract}  <CR>
+          \<CR>
+          \\end{abstract}  <CR>
+          \<CR>
+          \\keywords{a}  <CR>
+          \<CR>
+          \~~~~~  <CR>
+          \<CR>
+          \%\acknowledgments{a}  <CR>
+          \%\section*{Acknowledgments}  <CR>
+          \<CR>
+          \\bibliographystyle{aasjournal}  <CR>
+          \\bibliography{:r! echo %:t:r kJx$a} <CR>
+          \%===========================================================================================  <CR>
+          \\end{document} kkkkkkkkkkkkkkkkkkkkkkkkkkkkkk0wwa
+
+
+" ## Template for Report ##
+
+map! ]tmprep \documentclass[dvipdfmx,11pt]{article}<CR>
+          \\usepackage{amssymb}          % additional symbol  <CR>
+          \\usepackage{amsmath}          % eqref              <CR>
+          \\usepackage{graphicx}         % include graphic files(png,jpg ... or eps)  <CR>
+          \\usepackage[onehalfspacing]{setspace} <CR>
+          \\usepackage[scale=0.75,hmarginratio=1:1,vmarginratio=2:3,a4paper]{geometry} <CR>
+          \\usepackage{fancyhdr} <CR>
+          \\usepackage{color} <CR>
+          \\usepackage[colorlinks,citecolor=blue]{hyperref} <CR>
+          \\pagestyle{fancy} <CR>
+          \\lhead{a}          <CR>
+          \\renewcommand{\headrulewidth}{0.pt} <CR>
+          \<CR>
+          \\title{a} <CR>
+          \\author{DooSoo Yoon} <CR>
+          \\date{\today} <CR>
+          \<CR>
+          \\begin{document} <CR>
+          \\maketitle <CR>
+          \%===========================================================================================  <CR>
+          \<CR>
+          \%===========================================================================================  <CR>
+          \\end{document}kkkkkkkkkkkk0wwli
