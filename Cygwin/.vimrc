@@ -7,6 +7,10 @@ set nocompatible                	" Use Vim defaults instead of 100% vi compatibi
 set encoding=utf-8
 set backspace=indent,eol,start	        " more powerful backspacing
 
+" case sensitivity
+set ignorecase      " case insensitive for all lower cases
+set smartcase       " case sensitive when the words has both upper and lower cases
+
 "set linebreak		" Don't wrap words by default
 set textwidth=0		" Don't wrap lines by default 
 set nobackup		" Don't keep a backup file

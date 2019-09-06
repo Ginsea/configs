@@ -1,0 +1,13 @@
+#! /bin/bash
+
+echo $#
+if [ $# -le 2 ]
+   then
+       echo "number of args should be larger than 2: eg) ./mergePDF output.pdf input1.pdf input2.pdf
+   else
+     diskid=${BASH_ARGV[0]}
+fi
+
+
+
+#gs -dBATCH -dNOPAUSE -q -sDEVICE=pdfwrite -dPDFSETTINGS=/prepress -sOutputFile=Yoon_Application.pdf Cover/Yoon_Cover.pdf CV/Yoon_CV.pdf RS/Yoon_RS.pdf

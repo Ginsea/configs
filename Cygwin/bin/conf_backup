@@ -1,0 +1,6 @@
+#!/bin/bash
+
+backupdir="/home/astrodoo/e/Config_Backup/Cygwin/"
+
+echo "configurations backup to "${backupdir}
+rsync -uvr ~/.bashrc ~/.minttyrc ~/.vimrc ~/.ipython ~/.jupyter ~/.matplotlib/matplotlibrc ~/.ssh ~/.vim ~/.vim-file ~/bin ${backupdir}

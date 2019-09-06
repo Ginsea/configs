@@ -1,0 +1,10 @@
+#!/bin/bash
+
+if [ $# -eq 0 ]
+   then
+     echo "no input!!!"
+   else
+     file=${BASH_ARGV[0]}
+fi
+
+ifort $file -I"C:\Program Files\HDF_Group\HDF5\1.10.5\include\shared" -link -libpath:"C:\Program Files\HDF_Group\HDF5\1.10.5\lib" hdf5_fortran.lib

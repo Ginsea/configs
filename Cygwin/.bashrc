@@ -51,6 +51,7 @@ alias aci2="ssh -Y dyoon5@aci-service-2.chtc.wisc.edu"
 alias bluewater="ssh -X yoon2@bw.ncsa.illinois.edu"
 alias summithome="ssh astrodoo@home.ccs.ornl.gov"
 alias summit="ssh astrodoo@summit.olcf.ornl.gov"
+alias rhea="ssh astrodoo@rhea.ccs.ornl.gov"
 
 # alias
 alias vi="/usr/bin/vim"
@@ -107,10 +108,11 @@ fi
 
 
 # Set-up for enabling intel compiler usage in Cygwin
-alias ifort='ifort -Qlocation,link,"$VCINSTALLDIR/bin"'
-alias icl='icl -Qlocation,link,"$VCINSTALLDIR/bin"'
+#alias ifort='ifort -Qlocation,link,"$VCINSTALLDIR\\bin"'
+alias ifort='ifort -Qlocation,link,"$VCINSTALLDIR\\Tools\\MSVC\\14.16.27023\\bin\\Hostx64\\x64"'
+alias icl='icl -Qlocation,link,"$VCINSTALLDIR\\Tools\\MSVC\\14.16.27023\\bin\\Hostx64\\x64"'
 # the VS path (containing link.exe) should be prior to other folders with link.exe
-export PATH="/cygdrive/c/Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.16.27023\bin\Hostx86\x64:$PATH"
+export PATH="/cygdrive/c/Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.16.27023\bin\Hostx64\x64:$PATH"
 
 # set-up for activating Anaconda Environment (not successful yet)
 #if [[ "${OSTYPE}" == 'cygwin' ]]; then

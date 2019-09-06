@@ -29,13 +29,7 @@ map! ]eqa \begin{eqnarray}oo\end{eqnarray}k$i<space><space><space>
 "map! ]equ \begin{equation}\label{eq:}oo\end{equation}kk$i
 "map! ]eqa \begin{eqnarray}\label{eq:}oo\end{eqnarray}kk$i
 
-map! ]fig \begin{figure} <CR>
-		 \\centeringo
-         \\includegraphics[width=\columnwidth]{}o
-         \\caption{}o
-         \\label{fig:}o
-         \\end{figure}kkk$i
-
+map! ]fig \begin{figure}[!htbp]o\centeringo\includegraphics[width=0.7\textwidth]{}o\caption{}o\label{fig:}o\end{figure}kkk$i
 map! ]2fig \begin{figure}[!htbp] <CR>
           \\begin{center}$ <CR>
           \\begin{array}{cc}o
@@ -45,7 +39,6 @@ map! ]2fig \begin{figure}[!htbp] <CR>
           \\caption{a}   <CR>
           \\label{fig:} <CR>
           \\end{figure}kkkkkk0$bla
-
 map! ]del \begin{deluxetable}{a} <CR>
          \\tablecolumns{a}\tabletypesize{\scriptsize}\tablewidth{0pt}o
          \\tablecaption{a \label{tab: }}o
@@ -54,7 +47,6 @@ map! ]del \begin{deluxetable}{a} <CR>
          \    & \\ o<backspace>\enddata   <CR>
          \\tablenotetext{}{}o
          \\end{deluxetable}kkkkkkkk$hi
-
 map! ]tab \begin{table}[!htbp]o
          \\caption{a}o
          \\centeringo

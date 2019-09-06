@@ -1,0 +1,5 @@
+#! /bin/bash
+
+echo "ffmpeg -r 20 -i GRRT_IMAGE_rt_%03d.png -c:v libx264 out.mp4"
+echo "or"
+echo "ffmpeg -i GRRT_IMAGE_rt_%03d.png -c:v libx264 -crf 18 -vf fps=fps=10 out.mp4"

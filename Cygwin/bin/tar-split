@@ -1,0 +1,40 @@
+#!/bin/bash
+# e.g.) tar-split "*hdf5" --split 100MB --out test
+# and it will produce multiple files with "test.tar.gz.xx"
+# if you want to un-tar these files,
+# > cat test.tar.gz.* | tar tar xzfv -
+
+target="" 
+while [[ $# -gt 0 ]]
+do
+key="$1"
+
+case $key in
+    -s|--split)
+    split="$2"
+    shift # past argument
+    shift # past value
+    ;;
+    -o|--out)
+    out="$2"
+    shift # past argument
+    shift # past value
+    ;;
+    *)    # target if not "*"
+    target="$1" # save it in an array for later
+    shift # past argument
+    ;;
+esac
+done
+set -- "${POSITIONAL[@]}" # restore positional parameters
+
+if [[ $target == "" ]]; then target='"./*"'; fi
+if [[ $split == "" ]]; then split="20MB"; fi
+if [[ $out == "" ]]; then out="backup"; fi
+
+#echo split = "${split}"
+#echo out   = "${out}"
+#echo $target
+echo "tar cvzf - "${target}" | split --bytes="${split}" - "${out}".tar.gz."
+
+tar cvzf - ${target} | split --bytes=${split} - ${out}.tar.gz.

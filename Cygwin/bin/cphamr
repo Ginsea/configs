@@ -1,0 +1,25 @@
+#! /bin/bash
+
+# Time stamp 
+Now="$(date +'%y%m%d-%H%M')"
+
+# the directory for moving the tar file
+objdir="HAMR_GPU/HAMR_CUDA/"
+while [[ $# -gt 0 ]]
+do
+key="$1"
+
+case $key in
+    -n|--no-move)
+    objdir="./"
+    shift # past argument
+    shift # past value
+    ;;
+    *)    # target if not "*"
+    shift # past argument
+    ;;
+esac
+done
+
+tar cvfz ${objdir}hamr_${Now}.tar.gz *c *cu *h makefile slurm
+echo "${objdir}hamr_${Now}.tar.gz is created"
