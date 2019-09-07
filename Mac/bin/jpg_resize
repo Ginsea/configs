@@ -1,0 +1,21 @@
+#!/bin/bash
+## resize all jpg files in the folder into any percent (default is 20$) of its original size
+
+echo "start"
+if [ $# -eq 0 ]
+  then 
+    rs="50%"
+  else
+    rs=${BASH_ARGV[0]}
+fi
+
+echo "resize to $rs of its original size"
+
+mkdir origin
+
+for file in *.jpg
+do
+    echo ${file}
+    cp ${file} origin/
+    convert $file -resize $rs $file
+done;

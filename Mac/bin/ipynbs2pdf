@@ -1,0 +1,10 @@
+#!/bin/bash
+
+jupyter nbconvert --to pdf *ipynb
+
+mkdir tmp_ipynbs2pdf
+mv *pdf tmp_ipynbs2pdf/
+
+gs -dBATCH -dNOPAUSE -q -sDEVICE=pdfwrite -dPDFSETTINGS=/prepress -sOutputFile=notebook.pdf tmp_ipynbs2pdf/*pdf
+
+rm tmp_ipynbs2pdf

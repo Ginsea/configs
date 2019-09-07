@@ -1,0 +1,10 @@
+#!/bin/bash
+
+if [ $# -eq 0 ]
+   then
+     diskid="disk2s3"
+   else
+     diskid=${BASH_ARGV[0]}
+fi
+
+sudo fuse-ext2 /dev/$diskid /Volumes/DS_Linux

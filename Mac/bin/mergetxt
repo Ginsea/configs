@@ -1,0 +1,12 @@
+#!/bin/bash
+
+# Merge text file by the time with creation or modification.
+
+if [ $# -eq 0 ]
+   then
+     outtxt="tmp.txt"
+   else
+     outtxt=${BASH_ARGV[0]}
+fi
+
+cat $(find . -type f | xargs ls -rtl1) > $outtxt

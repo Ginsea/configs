@@ -1,0 +1,8 @@
+#!/bin/bash
+## change the extention from JPG to jpg
+
+for file in *.JPG
+do 
+    echo ${file} ${file/JPG/jpg}
+    mv ${file} ${file/JPG/jpg}
+done;
