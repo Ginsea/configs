@@ -73,6 +73,11 @@ autocmd FileType bib set foldnestmax=1                     " maximal level of fo
 
 set fdm=marker          " Marker for folding
 
+" Don't screw up folds when inserting text that might affect them, until
+" leaving insert mode. Foldmethod is local to the window.
+autocmd InsertEnter * let w:last_fdm=&foldmethod | setlocal foldmethod=manual
+autocmd InsertLeave * let &l:foldmethod=w:last_fdm
+
 " set the color of folded part
 hi Folded ctermbg=7    
 
