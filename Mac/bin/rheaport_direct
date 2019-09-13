@@ -1,0 +1,26 @@
+#!/bin/bash
+
+port="$1" 
+#if [[ -z $argument ]] ; then
+if [ $# -eq 0 ]
+  then
+    portn="8008" 
+  else
+    while [ $# -gt 0 ]; do
+        case "$1" in
+            --port=*)
+            portn="${1#*=}"
+            ;;
+            *)
+            printf "***************************\n"
+            printf "* Error: Invalid argument.*\n"
+            printf "***************************\n"
+            exit 1   
+        esac   
+        shift 
+    done     
+fi          
+
+echo "ssh -L "$portn":localhost:"$portn" astrodoo@rhea.ccs.ornl.gov"
+
+ssh -L $portn:localhost:$portn astrodoo@rhea.ccs.ornl.gov

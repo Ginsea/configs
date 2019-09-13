@@ -1,0 +1,125 @@
+set syn=tex
+
+" Mapping and Macro for latex
+
+map <F5> :!pdflatex %<CR>
+map <F6> :!latex %<CR>
+map <F7> :!dvipdfmx %<.dvi<CR>
+map <F8> :!bibtex %<<CR>
+
+map <F9> :set spell<CR>
+map <F10> :set nospell<CR>
+map <F4> !}fmt -100<CR>
+
+"  -> Ctrl-v & <ESC>
+map! ]equ \begin{equation}oo\end{equation}k$i<space><space><space>
+map! ]eqa \begin{eqvnarray}oo\end{eqnarray}k$i<space><space><space>
+"map! ]equ \begin{equation}\label{eq:}oo\end{equation}kk$i
+"map! ]eqa \begin{eqnarray}\label{eq:}oo\end{eqnarray}kk$i
+
+map! ]fig \begin{figure}[!htbp]o<space><space><space>\centeringo<space><space><space>\includegraphics[width=0.7\textwidth]{}o<space><space><space>\caption{}o\label{fig:}o\end{figure}kkk$i
+map! ]2fig \begin{figure}[!htbp] <CR>
+          \\begin{center}$ <CR>
+          \  \begin{array}{cc} <CR>
+          \    \includegraphics[width=0.5\textwidth]{a} &  <CR> 
+          \   \includegraphics[width=0.5\textwidth]{a}    <CR> 
+          \ \end{array}$ <CR>
+          \\end{center} <CR>
+          \\caption{a}   <CR>
+          \\label{fig:} <CR>
+          \\end{figure}kkkkkk0$bla
+map! ]del \begin{deluxetable}{a} <CR>
+         \  \tablecolumns{a} <CR>
+         \  \tabletypesize{\scriptsize} <CR>
+         \  \tablewidth{0pt} <CR>
+         \  \tablecaption{   \label{table: }} <CR>
+         \  \tablehead{ \colhead{a} & \colhead{a} } <CR>
+         \  \startdata <CR>
+         \    & \\ <CR>
+         \  \enddata   <CR>
+         \\end{deluxetable}kkkkkkkkk$hi
+map! ]tab \begin{table}[!htbp] <CR>
+         \  \caption{a} <CR>
+         \  \centering  <CR>
+         \  \begin{tabular}{a} <CR>
+         \  \hline\hline  <CR>
+         \%head    <CR>
+         \       \\ <CR>
+         \  \hline <CR>
+         \%data    <CR>
+         \       \\ <CR>
+         \  \hline <CR>
+         \  \end{tabular} <CR>
+         \  \label{table:a} <CR>
+         \\end{table}kkkkkkkk$hi
+
+map! ]biblio \begin{thebibliography}{a} <CR>
+            \\bibitem[a]{a} <CR>
+            \\end{thebibliography}k0wwa
+map! ]bibit \bibitem[a]{a}ba
+
+map! {}   {}i
+map! ()   ()i
+map! []   []i
+map! {{}} \left\{  \right\}bbhhi
+map! (()) \left(  \right)bbhi
+map! [[]] \left[  \right]bbhi
+
+" Template 1
+
+map! ]tmp1 \documentclass[12pt, preprint]{aastex} <CR>
+          \<CR>
+          \\usepackage{fancyhdr}    % fancy header <CR>
+          \\usepackage{amsmath} <CR>
+          \<CR>
+          \\slugcomment{ : \today} <CR>
+          \<CR>
+          \\pagestyle{fancy} <CR>
+          \\lhead{ : \today} <CR>
+          \\renewcommand{\headrulewidth}{0.pt} <CR>
+          \<CR>
+          \\shorttitle{a} <CR>
+          \\shortauthors{a} <CR>
+          \%=========================================================================================== <CR>
+          \\begin{document} <CR>
+          \<CR>
+          \\pagestyle{fancy} <CR>
+          \<CR>
+          \\title{a}<CR>
+          \\author{DooSoo Yoon} <CR>
+          \\email{yoon@astro.wisc.edu} <CR>
+          \<CR>
+          \\begin{abstract} <CR>
+          \\end{abstract} <CR>
+          \\keywords{a} <CR>
+          \<CR>
+          \%\acknowledgments{a} <CR>
+          \<CR>
+          \%\bibliographystyle{apj} <CR>
+          \%\bibliography{:r! echo %:t:r kJx$a} <CR>
+          \%=========================================================================================== <CR>
+          \\end{document} kkkkkkkkkkkkkkkkkkkkkkkkkk0wwa
+
+
+map! ]tmp2 \documentclass[11pt]{article}<CR>
+          \\usepackage{amssymb}          % additional symbol  <CR>
+          \\usepackage{amsmath}          % eqref              <CR>
+          \\usepackage{graphicx}         % include graphic files(png,jpg ... or eps)  <CR>
+          \\usepackage[onehalfspacing]{setspace} <CR>
+          \\usepackage[scale=0.75,hmarginratio=1:1,vmarginratio=2:3,a4paper]{geometry} <CR>
+          \\usepackage{fancyhdr} <CR>
+          \\pagestyle{fancy} <CR>
+          \\lhead{a}          <CR>
+          \\renewcommand{\headrulewidth}{0.pt} <CR>
+          \<CR>
+          \\title{a} <CR>
+          \\author{DooSoo Yoon} <CR>
+          \\date{\today} <CR>
+          \<CR>
+          \\begin{document} <CR>
+          \\maketitle <CR>
+          \%===========================================================================================  <CR>
+          \<CR>
+          \%===========================================================================================  <CR>
+          \\end{document}kkkkkkkkkkkk0wwli
+

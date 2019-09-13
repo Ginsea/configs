@@ -1,0 +1,13 @@
+"Macro for IDL
+
+map! ]pro proooostopoendkkkk$a<space>
+map! ]fun functionoooreturnoendkkkk$a<space>
+
+map! ]if  if () then beginooendifkk0wa
+map! ]mkeps nx= & ny= <CR>
+           \if keyword_set(ps) then mkeps,'',xs=20.,ys=20.*ny/nx $ <CR>
+           \else begin <CR>
+           \   !p.background=255 & !p.color=0 <CR>
+           \   window,0,xs=nx,ys=ny  <CR>
+           \endelse kkkkk0wa
+map! ]epsfree if keyword_set(ps) then epsfree 

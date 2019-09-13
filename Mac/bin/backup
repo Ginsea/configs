@@ -1,0 +1,5 @@
+#!/bin/bash
+# backup work directory to external drive
+
+rsync -uvrlt --exclude-from '/Users/astrodoo/bin/backup_exclude.txt' shao:'~/Work/AppToPost ~/Work/Code ~/Work/Data/DataSet/2016_AGNRot ~/Work/Funding ~/Work/Guide ~/Work/OutSources ~/Work/Papers ~/Work/Progress ~/Work/Reports ~/Work/WorkShop' /Volumes/DS_SG_Mac/Work/
+

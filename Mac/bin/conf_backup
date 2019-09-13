@@ -1,0 +1,6 @@
+#!/bin/bash
+
+backupdir="/Users/astrodoo/Conf_bakcup/Mac"
+
+echo "configurations backup to "${backupdir}
+rsync -uvr ~/.bash_profile ~/.vimrc ~/.ipython ~/.jupyter ~/.matplotlib/matplotlibrc ~/.ssh ~/.vim ~/.vim-file ~/bin ${backupdir}

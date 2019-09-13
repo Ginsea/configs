@@ -1,0 +1,4 @@
+#!/bin/bash
+
+rsync -uvr shao:/home/astrodoo/Work/Reports/* /Users/astrodoo/Work/Reports/ 
+

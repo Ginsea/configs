@@ -1,0 +1,3 @@
+2016_AGNRot/Trash/*
+2016_AGNRot/benchmark/*
+2016_AGNRot/test_bhacc/*
