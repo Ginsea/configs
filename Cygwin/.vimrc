@@ -68,8 +68,13 @@ autocmd FileType c set foldmethod=syntax                 " fold by syntax (c)
 autocmd FileType c set foldnestmax=1                     " maximal level of folding
 autocmd FileType cpp set foldmethod=syntax                 " fold by syntax (cpp)
 autocmd FileType cpp set foldnestmax=1                     " maximal level of folding
+autocmd FileType bib set foldmethod=syntax                 " fold by syntax (bib)
+autocmd FileType bib set foldnestmax=1                     " maximal level of folding
 
 set fdm=marker          " Marker for folding
+
+" set the color of folded part
+hi Folded ctermbg=7    
 
 " Suffixes that get lower priority when doing tab completion for filenames.
 " These are files we are not likely to want to edit or read.
