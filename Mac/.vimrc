@@ -7,6 +7,10 @@ set nocompatible                	" Use Vim defaults instead of 100% vi compatibi
 set encoding=utf-8
 set backspace=indent,eol,start	        " more powerful backspacing
 
+" case sensitivity
+set ignorecase      " case insensitive for all lower cases
+set smartcase       " case sensitive when the words has both upper and lower cases
+
 "set linebreak		" Don't wrap words by default
 set textwidth=0		" Don't wrap lines by default 
 set nobackup		" Don't keep a backup file
@@ -34,7 +38,7 @@ set ignorecase          " ignore case when searching
 set smartcase           " ignore case if search pattrn is all lowercase,case-sensitive otherwise
 
 "set nohlsearch            " high light
-set hlsearch            " high light
+set hlsearch           " high light
 
 set showcmd		" Show (partial) command in status line.
 set showmatch		" Show matching brackets.
@@ -55,10 +59,21 @@ autocmd FileType python set foldnestmax=1                " maximal level of fold
 autocmd FileType python set expandtab                    " insert spaces instead of <TAB> 
 autocmd FileType c set foldmethod=syntax                 " fold by syntax (c)
 autocmd FileType c set foldnestmax=1                     " maximal level of folding
-autocmd FileType c set foldmethod=syntax                 " fold by syntax (cpp)
-autocmd FileType c set foldnestmax=1                     " maximal level of folding
+autocmd FileType cpp set foldmethod=syntax                 " fold by syntax (cpp)
+autocmd FileType cpp set foldnestmax=1                     " maximal level of folding
+autocmd FileType bib set foldmethod=syntax                 " fold by syntax (bib)
+autocmd FileType bib set foldnestmax=1                     " maximal level of folding
 
 set fdm=marker          " Marker for folding
+
+" Don't screw up folds when inserting text that might affect them, until
+" leaving insert mode. Foldmethod is local to the window.
+autocmd InsertEnter * let w:last_fdm=&foldmethod | setlocal foldmethod=manual
+autocmd InsertLeave * let &l:foldmethod=w:last_fdm
+
+" set the color of folded part
+" can check the colors in .vim-files/color_demo.vim
+hi Folded ctermbg=230    
 
 " Suffixes that get lower priority when doing tab completion for filenames.
 " These are files we are not likely to want to edit or read.
