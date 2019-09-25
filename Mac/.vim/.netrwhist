@@ -1,10 +1,4 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =8
-let g:netrw_dirhist_1='/Users/astrodoo/SphinxHome/source'
-let g:netrw_dirhist_2='/Users/astrodoo/SphinxHome/source/_static'
-let g:netrw_dirhist_3='/Users/astrodoo/Work/AppToPost/Applications/1101_Flatiron/Cover'
-let g:netrw_dirhist_4='/Users/astrodoo/Work/Papers/2017_AGNRot/ApJ2'
-let g:netrw_dirhist_5='/Users/astrodoo/Work/BHOSS_Doosoo/BHOSS_CODE/src'
-let g:netrw_dirhist_6='/Users/astrodoo/JekyllHome/_pages'
-let g:netrw_dirhist_7='/Users/astrodoo/JekyllHome/_sass/minimal-mistakes'
-let g:netrw_dirhist_8='/Users/astrodoo/JekyllHome/_pages'
+let g:netrw_dirhist_cnt =2
+let g:netrw_dirhist_1='/Users/astrodoo/Work/Papers/2019_RadCoolSgrA'
+let g:netrw_dirhist_2='/Users/astrodoo/Work/Papers/2019_RadCoolSgrA/Figs'
