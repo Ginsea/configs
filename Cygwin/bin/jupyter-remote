@@ -4,7 +4,7 @@ port="$1"
 #if [[ -z $argument ]] ; then
 if [ $# -eq 0 ]
   then
-    portn="8080"
+    portn="7777"
   else
     while [ $# -gt 0 ]; do
         case "$1" in

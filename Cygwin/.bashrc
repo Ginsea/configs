@@ -28,10 +28,11 @@ CYAN='\[\033[1;36m\]'
 NC='\[\033[0m\]'
 
 #PS1="\[\e[33;1m\]\u@\[\e[33;1m\]\h \[\e[36;1m\]\W> \[\e[0m\]"
-PS1="$PURPLE\u@$green\h $blue\W> \[\e[0m\]"
+PS1="\[\e]0;\w\a\]$PURPLE\u@$green\h $blue\W> \[\e[0m\]"
+#PS1="$PURPLE\u@$green\h $blue\W> \[\e[0m\]"
 
 # title and tab title
-PROMPT_COMMAND='echo -ne "\033];${HOSTNAME}\007"'
+#PROMPT_COMMAND='echo -ne "\033];${HOSTNAME}\007"'
 
 # Terminal color setting
 #setenv TERM xterm-color
@@ -131,3 +132,13 @@ alias f2py='/cygdrive/c/Users/astrodoo/Anaconda3/Scripts/f2py.bat'
 
 # for ATA summer school in Amsterdam 2019 July
 alias cartesius="ssh ccurs068@cartesius.surfsara.nl"
+
+
+function settitle() {
+      export PS1="\[\e[32m\]\u@\h \[\e[33m\]\w\[\e[0m\]\n$ "
+      echo -ne "\e]0;$1\a"
+}
+function settitlepath() {
+      #export PS1="\[\e]0;\w\a\]\n\[\e[32m\]\u@\h \[\e[33m\]\w\[\e[0m\]\n$ "
+      export PS1="\[\e]0;\w\a\]$PURPLE\u@$green\h $blue\W> \[\e[0m\]"
+}
