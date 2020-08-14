@@ -7,6 +7,9 @@
 
 set syn=tex
 
+set linebreak  "line breaks by words, given width of windows
+"set display+=lastline  "show the list line in the window (rather than a column of "@" by default)
+
 " Rebind the arrow keys for handling long lines (moving with visual lines instead of logical lines)
 nnoremap <Up> gk
 nnoremap <Down> gj
