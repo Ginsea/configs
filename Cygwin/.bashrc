@@ -53,6 +53,7 @@ alias bluewater="ssh -X yoon2@bw.ncsa.illinois.edu"
 alias summithome="ssh astrodoo@home.ccs.ornl.gov"
 alias summit="ssh astrodoo@summit.olcf.ornl.gov"
 alias rhea="ssh astrodoo@rhea.ccs.ornl.gov"
+alias beluga="ssh astrodoo@beluga.computecanada.ca"
 
 # alias
 alias vi="/usr/bin/vim"

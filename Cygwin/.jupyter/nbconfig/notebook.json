@@ -1,0 +1,9 @@
+{
+  "Notebook": {
+    "Header": true
+  },
+  "load_extensions": {
+    "toc2/main": true,
+    "codefolding/main": true
+  }
+}

@@ -7,6 +7,14 @@
 
 set syn=tex
 
+" Rebind the arrow keys for handling long lines (moving with visual lines instead of logical lines)
+nnoremap <Up> gk
+nnoremap <Down> gj
+vnoremap <Up> gk
+vnoremap <Down> gj
+inoremap <Up> <C-o>gk
+inoremap <Down> <C-o>gj
+
 
 " Mapping and Macro for latex
 
